@@ -22,6 +22,10 @@ class MainViewModel(
     val sms: LiveData<Resource<List<Sms>>>
         get() = _sms
 
+    init {
+        fetchSmsFromCache()
+    }
+
     // Fetch data from API
     fun fetchSmsApi() {
         viewModelScope.launch {
@@ -48,6 +52,14 @@ class MainViewModel(
     fun addSms(sms: Sms) {
         viewModelScope.launch(Dispatchers.IO) {
             mainRepository.postSms(sms)
+        }
+    }
+
+    fun fetchSmsFromCache() {
+        viewModelScope.launch(Dispatchers.IO) {
+            mainRepository.getCacheSms().let {
+                _sms.postValue(Resource.success(it))
+            }
         }
     }
 }

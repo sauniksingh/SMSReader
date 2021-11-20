@@ -9,6 +9,6 @@ import org.koin.dsl.module
 
 val repoModule = module {
     single {
-        SmsRepository(get(), get())
+        SmsRepository(get(), get(), get())
     }
 }

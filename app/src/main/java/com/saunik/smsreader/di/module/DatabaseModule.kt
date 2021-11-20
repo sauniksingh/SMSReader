@@ -14,7 +14,7 @@ import org.koin.dsl.module
 val databaseModule = module {
 
     fun provideDatabase(application: Application): SmsDatabase {
-        return Room.databaseBuilder(application, SmsDatabase::class.java, "sms")
+        return Room.databaseBuilder(application, SmsDatabase::class.java, "sms_db")
             .fallbackToDestructiveMigration()
             .build()
     }

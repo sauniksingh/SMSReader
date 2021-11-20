@@ -1,10 +1,7 @@
 package com.saunik.smsreader
 
 import android.app.Application
-import com.saunik.smsreader.di.module.appModule
-import com.saunik.smsreader.di.module.databaseModule
-import com.saunik.smsreader.di.module.repoModule
-import com.saunik.smsreader.di.module.viewModelModule
+import com.saunik.smsreader.di.module.*
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 
@@ -16,7 +13,7 @@ class App : Application() {
         super.onCreate()
         startKoin {
             androidContext(this@App)
-            modules(appModule, repoModule, viewModelModule, databaseModule)
+            modules(appModule, repoModule, viewModelModule, databaseModule, cache)
         }
     }
 }

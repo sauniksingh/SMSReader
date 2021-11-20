@@ -8,7 +8,7 @@ import com.saunik.smsreader.data.model.Sms
 interface SmsDao {
     // getAllGroceryItems function is used to get
     // all the data of database.
-    @Query("SELECT * FROM sms")
+    @Query("SELECT * FROM sms_table")
     fun getAllSms(): LiveData<List<Sms>>
 
     @Transaction

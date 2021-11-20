@@ -1,20 +1,22 @@
 package com.saunik.smsreader.data.model
 
-import android.os.Parcelable
+import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import kotlinx.android.parcel.Parcelize
 
 /**
  * Created by Saunik Singh on 19/11/21.
  */
-@Entity(tableName = "sms")
-@Parcelize
+@Entity(tableName = "sms_table")
 data class Sms(
-    val address: String?,
+    @ColumnInfo(name = "address") val address: String?,
+    @ColumnInfo(name = "message")
     val message: String?,
+    @ColumnInfo(name = "time")
     val time: String?,
+    @ColumnInfo(name = "amount")
     val amount: String?,
+    @ColumnInfo(name = "id")
     @PrimaryKey
     val id: Int
-) : Parcelable
+)

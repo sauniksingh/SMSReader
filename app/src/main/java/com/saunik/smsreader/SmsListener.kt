@@ -54,7 +54,7 @@ class SmsListener : BroadcastReceiver() {
             receivedMessage.displayOriginatingAddress,
             message,
             DateUtil.getFormatedDate(receivedMessage.timestampMillis),
-            amount, 1
+            amount, receivedMessage.timestampMillis.toInt()
         )
         EventBus.getDefault().post(objSms)
     }
