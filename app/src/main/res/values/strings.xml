@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">SMS Reader</string>
+    <string name="amount">Amount: %s</string>
 </resources>
